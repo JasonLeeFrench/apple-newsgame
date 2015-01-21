@@ -1,0 +1,17 @@
+{
+  "name": "apple-newsgame",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.5.0"
+  },
+  "description": "A little article and newsgame.",
+  "main": "init.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JasonLeeFrench/apple-newsgame.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JasonLeeFrench/apple-newsgame/issues"
+  }
+}
