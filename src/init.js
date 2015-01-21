@@ -399,23 +399,23 @@ THE SOFTWARE.
         }
       },
       //EVENTS
-        'events': { 
-            'cash_found_small':{
-                'chance':0.05,
-                'action':'event_found_cash(60)',
-            },
-            'cash_found_med': {
-                'chance':0.005,
-                'action':'event_found_cash(240)',
-            },
-            'cash_found_large': {
-                'chance':0.001,
-                'action':'event_found_cash(640)',
-            },
-            'worker_die':{
-               'chance':0.0075,
-               'action':'event_worker_die(1)'
-           },
+      'events': {
+        'cash_found_small':{
+          'chance':0.05,
+          'action':'event_found_cash(60)',
+        },
+        'cash_found_med': {
+          'chance':0.005,
+          'action':'event_found_cash(240)',
+        },
+        'cash_found_large': {
+          'chance':0.001,
+          'action':'event_found_cash(640)',
+        },
+        'worker_die':{
+          'chance':0.0075,
+          'action':'event_worker_die(1)'
+        },
       },
       'stats': {
         'seconds_played': 0,
@@ -493,7 +493,7 @@ THE SOFTWARE.
       var sorted = list.sort(function(x,y){ return x[1] - y[1] });
       for(var i in sorted){
         var k = sorted[i][0],
-            cl = gd.makers[k];
+        cl = gd.makers[k];
         var template = "<div class='item' id='{{k}}'><h3>{{cl.label}}</h3><label id='{{k}}-amt' class='grey pull_right'>{{cl.quantity}}</label><p class='small'><b>$<span id='{{k}}-cst'>{{cl.cost}}</span></b> — <em class='grey'>{{cl.description}}</em></p><button class='buy' id='{{k}}-btn'>Purchase</button><button class='sell' id='{{k}}-sell-btn'>Sell</button></div>";
         var data = {'k':k, 'cl':cl};
         var html = Mustache.to_html(template, data);
@@ -539,22 +539,22 @@ THE SOFTWARE.
     }
 
     function setup_achievements() {
-       var sortlist = [];
-        for(var k in gd.achievements) {
-            sortlist.push([k, gd.achievements[k].group]);
-        }
-        var sorted = sortlist.sort(function(x,y) { return x[1] - y[1] });
-        var ac_el = $('#achievements');
-        ac_el.html('');
+      var sortlist = [];
+      for(var k in gd.achievements) {
+        sortlist.push([k, gd.achievements[k].group]);
+      }
+      var sorted = sortlist.sort(function(x,y) { return x[1] - y[1] });
+      var ac_el = $('#achievements');
+      ac_el.html('');
 
-        for(var i in sorted) {
-            var k = sorted[i][0];
-            var cl = gd.achievements[k];
-            var template = "<div class='item' id='{{k}}'><h3>{{cl.label}}</h3> - <em class='grey'>{{cl.description}}</em></div>";
-            var data = {'k':k, 'cl':cl};
-            var html = Mustache.to_html(template, data);
-            $('#achievements').prepend(html);
-        }
+      for(var i in sorted) {
+        var k = sorted[i][0];
+        var cl = gd.achievements[k];
+        var template = "<div class='item' id='{{k}}'><h3>{{cl.label}}</h3> - <em class='grey'>{{cl.description}}</em></div>";
+        var data = {'k':k, 'cl':cl};
+        var html = Mustache.to_html(template, data);
+        $('#achievements').prepend(html);
+      }
     }
 
     window.stats = gd.stats;
@@ -585,13 +585,13 @@ THE SOFTWARE.
     }
 
     function you_make(n){
-        if(n > 0){
-          return 'making money';
-        } else if(n < 0){
-           return 'losing money';
-        } else {
-            return 'neither making nor losing money';
-       }
+      if(n > 0){
+        return 'making money';
+      } else if(n < 0){
+        return 'losing money';
+      } else {
+        return 'neither making nor losing money';
+      }
     }
 
     function fix_stats(){
@@ -599,24 +599,24 @@ THE SOFTWARE.
     }
 
     function fix_achievements(){
-        for(var k in gd.achievements) {
-            var ac = gd.achievements[k];
-            var el = $('#'+k);
-            var el_lbl = $('#'+k+'_lbl');
-            if((ac.hidden)&&(!ac.unlocked)) {
-                el.addClass('hidden');
-                continue;
-            }
-            if(ac.unlocked) {
-                el.removeClass('hidden');
-                el.removeClass('semi_trans');
-                el_lbl.addClass('purchased');
-                el.removeClass('locked');
-            } else {
-                el.addClass('locked');
-                el.addClass('semi_trans');
-            }
+      for(var k in gd.achievements) {
+        var ac = gd.achievements[k];
+        var el = $('#'+k);
+        var el_lbl = $('#'+k+'_lbl');
+        if((ac.hidden)&&(!ac.unlocked)) {
+          el.addClass('hidden');
+          continue;
         }
+        if(ac.unlocked) {
+          el.removeClass('hidden');
+          el.removeClass('semi_trans');
+          el_lbl.addClass('purchased');
+          el.removeClass('locked');
+        } else {
+          el.addClass('locked');
+          el.addClass('semi_trans');
+        }
+      }
     }
 
     function fix_sellers(){
@@ -633,9 +633,9 @@ THE SOFTWARE.
         sl.cost = get_item_cost(sl);
 
         if(sl.quantity < 1){
-            el_sell_btn.attr('disabled', true);
+          el_sell_btn.attr('disabled', true);
         } else {
-            el_sell_btn.attr('disabled', false);
+          el_sell_btn.attr('disabled', false);
         }
 
         if(sl.cost > gd.cash.amount) {
@@ -742,15 +742,15 @@ THE SOFTWARE.
     }
 
     this.tick = function() {
-        var this_tick = (new Date).getTime();
-        var this_sub = 1000 / tick_ms;
-        var ticks = Math.round((this_tick - last_tick) / tick_ms);
-        if(ticks > 360000) { 
-            ticks = 360000;
-        } else if (ticks < 1) { 
-            return;
-        }
-        last_tick = this_tick;
+      var this_tick = (new Date).getTime();
+      var this_sub = 1000 / tick_ms;
+      var ticks = Math.round((this_tick - last_tick) / tick_ms);
+      if(ticks > 360000) {
+        ticks = 360000;
+      } else if (ticks < 1) {
+        return;
+      }
+      last_tick = this_tick;
       make_amount = 0,
       sell_amount = 0;
       var wage_amount = 0;
@@ -774,24 +774,24 @@ THE SOFTWARE.
       make_amount = make_amount / this_sub;
       do_make(make_amount * ticks);
 
-        var sell_amount = 0;
-        for(var k in gd.sellers) { 
-            var sl = gd.sellers[k];
-            sell_amount += sl.quantity * sl.rps;
-            wage_amount += sl.quantity * sl.rps;
-        }
+      var sell_amount = 0;
+      for(var k in gd.sellers) {
+        var sl = gd.sellers[k];
+        sell_amount += sl.quantity * sl.rps;
+        wage_amount += sl.quantity * sl.rps;
+      }
 
-        gd.stats.seller_rps = sell_amount;
-        sell_amount = sell_amount / this_sub;
+      gd.stats.seller_rps = sell_amount;
+      sell_amount = sell_amount / this_sub;
 
-        //do_sell(sell_amount * ticks);
+      //do_sell(sell_amount * ticks);
 
-        do_wage((wage_amount * ticks) * (gd.wage.percent / 100));
+      do_wage((wage_amount * ticks) * (gd.wage.percent / 100));
 
-        gd.wage.to_pay = ((wage_amount) * (gd.wage.percent / 100));
+      gd.wage.to_pay = ((wage_amount) * (gd.wage.percent / 100));
 
-        gd.you_make  = (do_sell(sell_amount * ticks) - ((wage_amount * ticks) * (gd.wage.percent / 100)));
-        
+      gd.you_make  = (do_sell(sell_amount * ticks) - ((wage_amount * ticks) * (gd.wage.percent / 100)));
+
       check_achievements();
 
       update_display();
@@ -839,10 +839,10 @@ THE SOFTWARE.
 
     function do_wage(n){
       if(n > gd.cash.amount){
-      
+
       }
-     gd.stats.wages_paid += n;
-     spend_cash(n * gd.roi);
+      gd.stats.wages_paid += n;
+      spend_cash(n * gd.roi);
       return n;
     }
 
@@ -890,10 +890,10 @@ THE SOFTWARE.
     }
 
     this.do_sell_click = function() {
-        var nw = (new Date).getTime();
-        if((nw - last_click) < 70) {
-          return false;
-        }
+      var nw = (new Date).getTime();
+      if((nw - last_click) < 70) {
+        return false;
+      }
       last_click = nw;
       var sale = do_sell(this.get_click_sell_amount() * 0.5);
       if(sale) {
@@ -906,11 +906,11 @@ THE SOFTWARE.
     }
 
     this.do_make_click = function() {
-        var nw = (new Date).getTime();
-        if((nw - last_click) < 70) {
-          return false;
-        }
-        last_click = nw;
+      var nw = (new Date).getTime();
+      if((nw - last_click) < 70) {
+        return false;
+      }
+      last_click = nw;
       var amt = this.get_click_make_amount();
       if(do_make(amt)) {
         //gd.stats.hand_made_widgets += amt;
@@ -932,9 +932,9 @@ THE SOFTWARE.
     }
 
     this.do_load = function(){
-        if((localStorage.sv)||(localStorage.ac)) {
-          update_gd_from_save();
-        }
+      if((localStorage.sv)||(localStorage.ac)) {
+        update_gd_from_save();
+      }
     }
 
     function get_hex_from_int(n) {
@@ -1064,78 +1064,78 @@ THE SOFTWARE.
     }
 
     function fix_unlocks() {
-        // Clickers
-        var cl_unl = 0;
-        var cl_tot = 0;
-        for(var k in gd.makers) {
-            cl_tot += 1;
-            var cl = gd.makers[k];
-            if(cl.unlock_rps <= gd.stats.seller_rps) {
-                cl.unlocked = true;
-                cl_unl += 1;
-            }
+      // Clickers
+      var cl_unl = 0;
+      var cl_tot = 0;
+      for(var k in gd.makers) {
+        cl_tot += 1;
+        var cl = gd.makers[k];
+        if(cl.unlock_rps <= gd.stats.seller_rps) {
+          cl.unlocked = true;
+          cl_unl += 1;
         }
-        $('#clickers_unlocked').html(pretty_int(cl_unl));
-        $('#clickers_total').html(pretty_int(cl_tot));
+      }
+      $('#clickers_unlocked').html(pretty_int(cl_unl));
+      $('#clickers_total').html(pretty_int(cl_tot));
 
-        // Sellers
-        var sl_unl = 0;
-        var sl_tot = 0;
-        for(var k in gd.sellers) {
-            sl_tot += 1;
-            var sl = gd.sellers[k];
-            if(sl.unlock_rps <= gd.stats.seller_rps) {
-                sl_unl += 1;
-                sl.unlocked = true;
-            }
+      // Sellers
+      var sl_unl = 0;
+      var sl_tot = 0;
+      for(var k in gd.sellers) {
+        sl_tot += 1;
+        var sl = gd.sellers[k];
+        if(sl.unlock_rps <= gd.stats.seller_rps) {
+          sl_unl += 1;
+          sl.unlocked = true;
         }
-        $('#sellers_unlocked').html(pretty_int(cl_unl));
-        $('#sellers_total').html(pretty_int(cl_tot));
+      }
+      $('#sellers_unlocked').html(pretty_int(cl_unl));
+      $('#sellers_total').html(pretty_int(cl_tot));
 
-        // Achievements
-        var ac_unl = 0;
-        var ac_tot = 0;
-        for(var k in gd.achievements) {
-            var ac = gd.achievements[k];
-            if((!ac.unlocked)&&(ac.hidden)) {
-                continue;
-            }
-            if(ac.unlocked) {
-                ac_unl += 1;
-            }
-            ac_tot += 1;
+      // Achievements
+      var ac_unl = 0;
+      var ac_tot = 0;
+      for(var k in gd.achievements) {
+        var ac = gd.achievements[k];
+        if((!ac.unlocked)&&(ac.hidden)) {
+          continue;
         }
-        $('#achievements_unlocked').html(pretty_int(ac_unl));
-        $('#achievements_total').html(pretty_int(ac_tot));
+        if(ac.unlocked) {
+          ac_unl += 1;
+        }
+        ac_tot += 1;
+      }
+      $('#achievements_unlocked').html(pretty_int(ac_unl));
+      $('#achievements_total').html(pretty_int(ac_tot));
 
     }
 
 
-function add_message(msg, _type) {
-    var el = $("<div></div>");
-    el.html(msg);
-    el.addClass(_type);
-    $('#last_message').html($(el).clone().wrap('<p>').parent().html());
-    $('#messages').prepend(el);
-    //el.fadeOut(100000);
-    if($('#messages div').length > 45) {
+    function add_message(msg, _type) {
+      var el = $("<div></div>");
+      el.html(msg);
+      el.addClass(_type);
+      $('#last_message').html($(el).clone().wrap('<p>').parent().html());
+      $('#messages').prepend(el);
+      //el.fadeOut(100000);
+      if($('#messages div').length > 45) {
         $('#messages div:last').remove();
+      }
     }
-}
-function error(msg) {
-    add_message('&#10007; '+msg, 'error');
-}
-function message(msg) {
-    add_message('&#9993; '+msg, 'message');
-}
-function good_message(msg) {
-    add_message('&#9733; '+msg, 'good_message');
-}
-function bad_message(msg) {
-    add_message('&#10007; '+msg, 'bad_message');
-}
+    function error(msg) {
+      add_message('&#10007; '+msg, 'error');
+    }
+    function message(msg) {
+      add_message('&#9993; '+msg, 'message');
+    }
+    function good_message(msg) {
+      add_message('&#9733; '+msg, 'good_message');
+    }
+    function bad_message(msg) {
+      add_message('&#10007; '+msg, 'bad_message');
+    }
 
-   window.pretty_bigint = function(num) {
+    window.pretty_bigint = function(num) {
       var sn = '';
       if(num >= 1000000000000000000000000) {
         return pretty_int(num)
@@ -1179,73 +1179,73 @@ function bad_message(msg) {
 
     this.get_roi = function() {
       return gd.roi;
-     }
+    }
 
     this.check_events = function() {
-        for(var k in gd.events) { 
-            var rnd = Math.random();
-            if(gd.events[k].chance > rnd) { 
-                run_event(k);
-            }
-        } 
+      for(var k in gd.events) {
+        var rnd = Math.random();
+        if(gd.events[k].chance > rnd) {
+          run_event(k);
+        }
+      }
     }
 
-    function run_event(evk) { 
-        if(gd.events[evk]) {
-            eval(gd.events[evk].action);
-        }
+    function run_event(evk) {
+      if(gd.events[evk]) {
+        eval(gd.events[evk].action);
+      }
     }
 
-    function event_found_cash(r) { 
-        var amt = (gd.stats.seller_rps * gd.roi) * r;
-        if(amt < 100) { amt = 100; }
-        earn_cash(amt);
-        if(amt > 10000000000) { 
-            good_message('A mystery benefactor has contributed $'
-                +pretty_bigint(amt)+' to your cause');
-            return;
-        }
-        if(amt > 10000000) { 
-            good_message('You found a truck load of cash, containing $'
-                +pretty_bigint(amt)+' inside!');
-            return;
-        }
-        if(amt > 100000) { 
-            good_message('You found a briefcase with $'+pretty_int(amt)+' inside!');
-            return;
-        }
-        good_message('You found some extra cash hidden in a shoe box, worth $'
-            +pretty_int(amt)+'!');
+    function event_found_cash(r) {
+      var amt = (gd.stats.seller_rps * gd.roi) * r;
+      if(amt < 100) { amt = 100; }
+      earn_cash(amt);
+      if(amt > 10000000000) {
+        good_message('A mystery benefactor has contributed $'
+        +pretty_bigint(amt)+' to your cause');
+        return;
+      }
+      if(amt > 10000000) {
+        good_message('You found a truck load of cash, containing $'
+        +pretty_bigint(amt)+' inside!');
+        return;
+      }
+      if(amt > 100000) {
+        good_message('You found a briefcase with $'+pretty_int(amt)+' inside!');
+        return;
+      }
+      good_message('You found some extra cash hidden in a shoe box, worth $'
+      +pretty_int(amt)+'!');
     }
 
     function event_worker_die(r){
       if(gd.happy > 50){ return }
       worker_lost(r);
-       if(worker_lost()){
-         if(r == 1){  
-            bad_message('Oh no. A worker died on the job');
-            return;
-         } else {
-             bad_message('Oh no. '+pretty_int(r)+' died in apparent mass-suicides');
-             return;
-         }
+      if(worker_lost()){
+        if(r == 1){
+          bad_message('Oh no. A worker died on the job');
+          return;
+        } else {
+          bad_message('Oh no. '+pretty_int(r)+' died in apparent mass-suicides');
+          return;
+        }
       }
-  }
+    }
 
     function worker_lost(n){
-        var picks = [];
-  for(var k in gd.makers) { 
-    var cl = gd.makers[k];
-    if((cl.quantity > 0)) { 
-      picks.push(k);
-    }
-  }
-  if(picks.length < 1) {
-    return false;
-  }
-  var pick = picks[Math.floor(Math.random()*picks.length)];
-  gd.makers[pick].quantity -= 1;
-  return true;
+      var picks = [];
+      for(var k in gd.makers) {
+        var cl = gd.makers[k];
+        if((cl.quantity > 0)) {
+          picks.push(k);
+        }
+      }
+      if(picks.length < 1) {
+        return false;
+      }
+      var pick = picks[Math.floor(Math.random()*picks.length)];
+      gd.makers[pick].quantity -= 1;
+      return true;
 
     }
 
@@ -1258,13 +1258,13 @@ function bad_message(msg) {
     var y = d3.scale.linear().range([height - 4, 0]);
     var parseDate = d3.time.format("%d/%m/%Y").parse;
     var line = d3.svg.line()
-        .interpolate("basis")
-        .x(function (d) {
-            return x(d.date);
-        })
-        .y(function (d) {
-            return y(d.close);
-        });
+    .interpolate("basis")
+    .x(function (d) {
+      return x(d.date);
+    })
+    .y(function (d) {
+      return y(d.close);
+    });
     function sparkline(elemId, data) {
       data.forEach(function (d) {
         d.date = parseDate(d.Date);
@@ -1314,83 +1314,81 @@ function bad_message(msg) {
     var events = setInterval(gm.check_events, 120000);
     gm.do_setup();
     $('#make-click').click(function(e){
-        gm.do_make_click();
-        var elc = $('.make_up:first').clone()
-        elc.html('+'+pretty_bigint(gm.get_click_make_amount()));
-        $('.phone-stats').append(elc);
-        elc.show();
-        elc.offset({left:e.pageX-30, top:e.pageY-50});
-        var end_y = e.clientY-150;
-        elc.css('opacity',100);
-        if(last_float == 1) {
-            var this_float = e.pageX;
-            last_float = 0;
-        } else {
-            var this_float = e.pageX - 60;
-            last_float = 1;
-        }
-        elc.animate({'top':end_y.toString()+'px', 'opacity':0, 'left':this_float.toString()+'px'}, 750, function() {
-            $(this).remove();
-        });
+      gm.do_make_click();
+      var elc = $('.make_up:first').clone()
+      elc.html('+'+pretty_bigint(gm.get_click_make_amount()));
+      $('.phone-stats').append(elc);
+      elc.show();
+      elc.offset({left:e.pageX-30, top:e.pageY-50});
+      var end_y = e.clientY-150;
+      elc.css('opacity',100);
+      if(last_float == 1) {
+        var this_float = e.pageX;
+        last_float = 0;
+      } else {
+        var this_float = e.pageX - 60;
+        last_float = 1;
+      }
+      elc.animate({'top':end_y.toString()+'px', 'opacity':0, 'left':this_float.toString()+'px'}, 750, function() {
+        $(this).remove();
+      });
     });
     $('#sell-click').click(function(e){
-        var sale = gm.do_sell_click();
-        if(sale == 0) {
-            return;
-        }
-        var elc = $('.sell_up:first').clone();
-        elc.html('$'+pretty_bigint(sale*gm.get_roi()));
-        $('.cash-stats').append(elc);
-        elc.show();
-        elc.offset({left:e.pageX-30, top:e.pageY-50});
-        var end_y = e.clientY-150;
-        elc.css('opacity',100);
-        if(last_float == 1) {
-            var this_float = e.pageX;
-            last_float = 0;
-        } else {
-            var this_float = e.pageX - 60;
-            last_float = 1;
-        }
-        elc.animate({'top':end_y.toString()+'px', 'opacity':0, 'left':this_float.toString()+'px'}, 750, function() {
-            $(this).remove();
-        });
+      var sale = gm.do_sell_click();
+      if(sale == 0) {
+        return;
+      }
+      var elc = $('.sell_up:first').clone();
+      elc.html('$'+pretty_bigint(sale*gm.get_roi()));
+      $('.cash-stats').append(elc);
+      elc.show();
+      elc.offset({left:e.pageX-30, top:e.pageY-50});
+      var end_y = e.clientY-150;
+      elc.css('opacity',100);
+      if(last_float == 1) {
+        var this_float = e.pageX;
+        last_float = 0;
+      } else {
+        var this_float = e.pageX - 60;
+        last_float = 1;
+      }
+      elc.animate({'top':end_y.toString()+'px', 'opacity':0, 'left':this_float.toString()+'px'}, 750, function() {
+        $(this).remove();
+      });
     });
 
     function checkFirst(){
       function isScrolledIntoView(elem){
-          var docViewTop = $(window).scrollTop();
-          var docViewBottom = docViewTop + $(window).height();
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
 
-          var elemTop = $(elem).offset().top;
-          var elemBottom = elemTop + $(elem).height();
+        var elemTop = $(elem).offset().top;
+        var elemBottom = elemTop + $(elem).height();
 
-          return ((docViewTop < elemTop) && (docViewBottom > elemBottom));
+        return ((docViewTop < elemTop) && (docViewBottom > elemBottom));
       }
       var first = true;
       $(document).scroll(function(){
         if(isScrolledIntoView($('.game-container')) && first){
-            $('body').chardinJs('start');
-            first = false;
+          $('body').chardinJs('start');
+          first = false;
         }
       });
     }
 
-    if(!localStorage.sv){
-      checkFirst();
-    }
+    checkFirst();
 
     $('.tabs').children().click(function(){
-        var target = $(this).attr('class').split('-').pop();
-        if($('#' + target).hasClass('active') || $(this).hasClass('active-tab')){
-          return false;
-        } else {
-          $('.items').children().removeClass('active');
-          $('.items').children().addClass('inactive');
-          $('#' + target).attr('class','active');
-          $('.tabs').children().removeClass('active-tab');
-          $(this).addClass('active-tab');
-        }
+      var target = $(this).attr('class').split('-').pop();
+      if($('#' + target).hasClass('active') || $(this).hasClass('active-tab')){
+        return false;
+      } else {
+        $('.items').children().removeClass('active');
+        $('.items').children().addClass('inactive');
+        $('#' + target).attr('class','active');
+        $('.tabs').children().removeClass('active-tab');
+        $(this).addClass('active-tab');
+      }
     });
 
     $('body').removeClass('loading');
