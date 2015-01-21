@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chardin.js/0.1.3/chardinjs.css" />
+  <title>Taking a Byte out of Apple</title>
+  <style>
+    .chardinjs-helper-layer.chardinjs-top{
+      padding-top: 0px;
+      margin-top: -10px;
+    }
+    .chardinjs-helper-layer.chardinjs-bottom{
+      padding-top: 0px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body class="loading">
+  <div class="header">
+    <div class="cover">
+      <div class="story-meta">
+        <h1>Taking a Byte out of Apple</h1>
+        <div class="summary">
+          <p>
+            It's a multibillion dollar company, worth more than most countries. But does Apple <span id="apple_stock"></span> treat the people who make its products fairly?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <p>A recent undercover BBC investigation showed widespread poor treatment of workers in Chineese factories which make Apple products.</p>
+    <p>The BBC's Panorama sent in undercover reporters to factories owned by company Pegatron, who reported having to work 18 days in a row despite repeated requests for days off and shifts as long as 16 hours.</p>
+    <p>It found standards on workers' hours and juvenile workers were being breached at the Pegatron factories.</p>
+    <blockquote><p>Every time I got back to the dormitories, I wouldn't want to move. Even if I was hungry I wouldn't want to get up to eat. I just wanted to lie down and rest. I was unable to sleep at night because of the stress.</p></blockquote>
+    <p>This comes a few years after poor conditions in China were highlighted when workers at the Foxconn plant, which also produces parts for Apple products, killed themselves in apparent protest at their working conditions.</p>
+    <p>In 2010, an estimated eighteen Foxconn employees attempted suicide, and fourteen people died.</p>
+    <p>Foxconn still produces products for Apple, though Apple moved some of its production work to Pegatron's factories on the outskirts of Shanghai.</p>
+    <p>Apple has also produced standards detailing how employees making their products are to be treated.</p>
+    <p>Pegatron said it was carefully investigating Panorama's claims and would take all necessary action if any deficiencies were found at their facilities.</p>
+    <p><em>Can you run a factory ethically? Try below - click the buttons to make and sell your own phones, then hire manufacturers and distributors and set wages to make a fortune in our satirical management simulation.</em></p>
+     <hr class="divide"/>
+  </div>
+  <div class="game-container">
+  <div class="stats">
+      <div class="phone-stats">
+        <p>Phones
+          <strong><span class="amount">-</span></strong>
+          <br />
+          <small><span id="clicker_rps">0</span> phones added per second (net)</small>
+          <br />
+          <small><span id="clicker_rps_g">0</span> phones made per second (gross)</small>
+        </p>
+        <div class="button" data-intro="Click to make phones" data-position="top" id="make-click">MAKE!</div>
+        <div class="button" data-intro="Click to sell phones" data-position="bottom" id="sell-click">SELL!</div>
+      </div>
+      <div class="cash-stats">
+         <p>
+           <span id="sell_lbl">Money</span>
+           ($<span id="sell_roi">0.50</span> each click)<br>
+           Your cash: $<strong><span class="money">-</span></strong><br>
+        </p>
+      </div>
+      <div class="wage-stats" data-intro="Set wages for your worker. Be kind!" data-position="right">
+         <p>
+           <span>Wages</span>
+           <input class="wage" type="range" name="points" min="1" max="100">
+           <small>You are <span class="you_make">-</span></small>
+         </p>
+      </div>
+      <div id="last_message"></div>
+    </div>
+    <div class="tabs" data-intro="When you have enough cash, hire some people to click for you!" data-position="top">
+        <button class="active-tab tab-makers">Manufacturers</button>
+        <button class="tab-sellers">Distributors</button>
+        <button class="tab-achievements">Achievements</button>
+    </div>
+    <div class="items">
+      <div id="makers" class="active"></div>
+      <div id="sellers"  class="inactive"></div>
+      <div id="achievements"  class="inactive"></div>
+    </div>
+    <div class="sell_up"></div>
+    <div class="make_up"></div>
+  </div>
+  <div class="footer">
+  </div>
+  <div class="modal"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chardin.js/0.1.3/chardinjs.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="scripts/init.js"></script>  
+</body>
+</html>

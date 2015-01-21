@@ -1,0 +1,325 @@
+html,body{
+  width:100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 20px;
+  line-height: 32px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.header{
+  background-image: url('https://farm6.staticflickr.com/5561/14369441118_07b42a5ac5_o.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.cover{
+  background-color: rgba(0,0,0,0.65);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: #FFF;
+  z-index: 1;
+}
+
+.story-meta{
+  border: 0;
+  position: absolute;
+  top: 60px;
+  left: 5%;
+  border-bottom: solid 1px #ccc;
+  box-sizing: border-box;
+  margin-top: 40px;
+  padding: 0 16px 20px;
+  top: 120px;
+}
+
+.story-meta h1{
+  display: block;
+  max-width: 275px;
+  margin-bottom: 10px;
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #fff;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 10px;
+  max-width: 325px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom:30px;
+  max-width: 325px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.summary{
+  font-size: 17px;
+  font-weight: 300;
+  max-width: 375px;
+  margin-bottom: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  font-size: 22px;
+  max-width: 485px;
+}
+
+.container{
+  margin-top: 60px;
+  margin-bottom: 60px;
+  max-width: 625px;
+}
+
+#apple_stock{
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.sparkcircle{
+  display: none;
+}
+
+.game-container{
+  height: 500px;
+}
+
+.game, .game p{
+  font-size: 1.0em;
+  font-family: Verdana,Helvetica,Arial;
+  color: #333;
+}
+
+.items {
+  width: 65%;
+  float: left;
+  padding-bottom: 20px;
+}
+
+.tabs{
+width: 250px;
+display: inline;
+}
+
+.button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 220px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #fff;
+  cursor: pointer; 
+  border-radius: 10px;
+  border: 2px solid #ccc;
+}
+
+.item button {
+    margin: 1px; 
+    background-color: #bbb;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    color: #fff;
+    text-shadow: -1px -1px 0px #aaa;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.item button:disabled, .item button.disabled {
+    color: #aaa;
+    background-color: #777;
+    border-color: #777;
+    cursor: default;
+    text-shadow: none;
+}
+
+#make-click{
+  background-color: #39f;
+  border-color: #27e;
+  text-shadow: -1px -1px 1px #27e;
+}
+
+#sell-click{
+  background-color: #1c3;
+  border-color: #0a0;
+  text-shadow: -1px -1px 1px #0a0;
+}
+
+.stats{
+  width: 30%;
+  float: left;
+  min-width: 250px;
+}
+
+.stats, .stats p{
+  padding: 3px;
+  margin: 4px;
+  text-align: center;
+}
+
+.make_up, .sell_up {
+  display: none;
+  z-index: 1500;
+  position: fixed;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 0px 1px 1px #333;
+}
+
+.make_up {
+  color: #58f;
+}
+
+.sell_up {
+  color: #5e5;
+}
+
+.hidden { 
+    display: none;
+}
+
+input[type='range'] {
+		-webkit-appearance: none;
+		border-radius: 5px;
+		box-shadow: inset 0 0 5px #333;
+		background-color: #999;
+		height: 10px;
+		vertical-align: middle;
+	}
+	input[type='range']::-moz-range-track {
+		-moz-appearance: none;
+		border-radius: 5px;
+		box-shadow: inset 0 0 5px #333;
+		background-color: #999;
+		height: 10px;
+	}
+	input[type='range']::-webkit-slider-thumb {
+		-webkit-appearance: none !important;
+		border-radius: 20px;
+		background-color: #FFF;
+		box-shadow:inset 0 0 10px rgba(000,000,000,0.5);
+		border: 1px solid #999;
+		height: 20px;
+		width: 20px;
+	}
+	input[type='range']::-moz-range-thumb {
+		-moz-appearance: none;
+		border-radius: 20px;
+		background-color: #FFF;
+		box-shadow:inset 0 0 10px rgba(000,000,000,0.5);
+		border: 1px solid #999;
+		height: 20px;
+		width: 20px;
+	}
+
+.grey {
+  color: #777;
+}
+
+.pull_right{
+  float: right;
+}
+
+#last_message div { 
+    margin: auto;
+}
+#messages { 
+    position: relative;
+    width: 100%;
+    border: 1px solid #39e;
+    overflow: hidden;
+    border-radius: 10px;
+    color: #eee;
+}
+#last_message div, #messages div { 
+    margin-bottom: -2px;
+}
+
+.items .inactive{
+  display: none;
+}
+
+.items .active{
+  display: block;
+}
+
+button{
+  margin: 1px;
+  background-color: #bbb; 
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  color: #fff !important;
+  text-shadow: -1px -1px 0px #aaa;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.tabs button.active-tab{
+  background: #eee;
+  border-color: #ccc;
+  color: #777;
+  text-shadow: none;
+}
+
+blockquote{
+  background: #f9f9f9;
+  border-left: 10px solid #ccc !important;
+  margin: 20px auto !important;
+  padding: 0.5em 10px !important;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote::before{
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+hr.divide{
+  width: 25%;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+  background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+  margin: 80px auto;
+}
+
+#achievements .item h3 {
+  display: inline-block;
+}
+
+.semi_trans {
+  opacity: 0.5;
+}
+
+.modal{display: none;position: fixed;z-index: 1000;top: 0;left: 0;height: 100%;width: 100%;background: #000 url('http://jasonleefrench.co.uk/stuff/guerra-sucia/img/ajax-loader.gif') 50% 50% no-repeat;}body.loading{overflow: hidden;}body.loading .modal{display: block;}
